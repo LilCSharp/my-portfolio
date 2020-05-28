@@ -1,18 +1,503 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
-  </body>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agency - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                    <img src="assets/img/Symb.svg" alt="" />
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#research">Research</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#fun">FUN</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome to my place!</div>
+                <div class="masthead-heading text-uppercase">Caleb Wheeler</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#projects">My Work</a>
+            </div>
+        </header>
+
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About Me</h2>
+                    <h3 class="section-subheading text-muted"><a href="assets/Resume.pdf">Resume</a></h3>
+                </div>
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/MyPic.jpg" alt="" />
+                    <h4>Caleb Wheeler</h4>
+                    <p class="text-muted">Intern</p>
+                    <a class="btn btn-dark btn-twitter mx-2" href="https://twitter.com/CalebWheeler2k"></a>
+                    <a class="btn btn-dark btn-insta mx-2" href="https://www.instagram.com/caleebthedweeb/"></a>
+                    <a class="btn btn-dark btn-linkedin mx-2" href="https://www.linkedin.com/in/caleb-w-bb14a6141/"></a>
+                    <a class="btn btn-dark btn-github mx-2" href="https://github.com/LilCSharp"></a>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">Education</h4>
+                        <p class="text-muted">I am a double major in computer science and mathematics at the University of Maryland. I am a part of the Advanced Cybersecurity Experience for Students program, where students conduct cybersecurity research. My primary interest lies in automation, specifically in computer vision. I have chosen to specialize in machine learning and network security in computer science, and topology/geometry in mathematics.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-laptop fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">Work Experience</h4>
+                        <p class="text-muted">I am currently a STEP intern at Google, where I am working on open-source web development projects using JavaScript, HTML, and CSS. I was an intern a paid intern at NASA, Goddard for two summers, and an unpaid intern there for an intern year. My work was conducted under the Coatings and Contamination Division on thin film adhesion and failure strain.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x"><i class="fas fa-circle fa-stack-2x text-primary"></i><i class="fas fa-lock fa-stack-1x fa-inverse"></i></span>
+                        <h4 class="my-3">Personal Work</h4>
+                        <p class="text-muted">I have developed a notecard application for Android. After learning more about Android, I attempted to create a mobile financial management application that implements the Plaid API. As a member of UMD Loop, I have developed code that tracks the acceleration and velocity of a machine through an IMU using quaternions and discrete integration. I also have a couple of CAD designs laying around :)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research-->
+        <section class="page-section" id="research">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Research</h2>
+                    <h3 class="section-subheading text-muted">You really know you know nothing when math haunts you for days...</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/Research/Succ.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2018-2019</h4>
+                                <h4 class="subheading">Intern in Coatings and Contamination at NASA</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">My role as an intern was to improve the adhesive qualities of our thermal control coatings by developing optimal treatments using plasma. I know a thing or two about physical/organic chemistry and plasma physics ;)</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/Research/aces.png" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>August 2019</h4>
+                                <h4 class="subheading">Becoming an ACES Student</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">I enrolled at the University of Maryland, where I would join the Advanced Cybersecurity Program for Students (ACES). As a member of ACES, I began to conduct research in the field of cybersecurity by creating honeypots to monitor the common security practices of people and organizations.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/Research/Feynman.png" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>February 2020</h4>
+                                <h4 class="subheading">Research in Particle Physics</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">At UMD, I quickly became involved in physics research through taking a class in computational physics with Dr. Jabeen. On behalf of Dr. Agashe, I was tasked with writing code in C++ and Mathematica that statistically evaluated methods of experimentally proving the existence of particles in the Randall-Sundrum Model, as an extension of Kaluza-Klein Theory. My code was based based on files produced by Monte-Carlo simulations in MadGraph (with Pythia and Delphes).</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>The Story<br />Continues<br />Onward!</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Projects -->
+        <section class="page-section bg-light" id="projects">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Projects</h2>
+                    <h3 class="section-subheading text-muted">Here is a sampling of my projects.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                    <img class="img-fluid" src="assets/img/flashcard.jpg" alt=""
+                            />
+                                </div>
+                                </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Flashcard App</div>
+                                <div class="portfolio-caption-subheading text-muted">1st Android Project</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/quat.jpg" alt=""
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Motion Analysis</div>
+                                <div class="portfolio-caption-subheading text-muted">IMU Data Analysis</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/honey.png" alt=""
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Honeypot</div>
+                                <div class="portfolio-caption-subheading text-muted">Network Monitor</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/notes.png" alt=""
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Web To-Do App</div>
+                                <div class="portfolio-caption-subheading text-muted">Basic Hackathon Work</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/cash.jpg" alt=""
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Personal Finance Tool</div>
+                                <div class="portfolio-caption-subheading text-muted">Android App Built with Plaid API</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/glass.png" alt=""
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Research Tool</div>
+                                <div class="portfolio-caption-subheading text-muted">Data Following Machines</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fun -->
+        <section class="page-section bg-light" id="fun">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Things I Love</h2>
+                    <h3 class="section-subheading text-muted">These are a few of my favorite things</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <a href="https://www.youtube.com/playlist?list=PL32yS8Jc1EtnpKaHu4a2x6OmW8DVilJTN">
+                                <img class="mx-auto rounded-circle" src="assets/img/jazz.jpeg" alt="" />
+                            </a>
+                            <h4>Some of my favorite songs (click to listen)</h4>
+                            <p class="text-muted">(I love all genres, but bossa nova has a special place in my heart)</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <a href="https://youtu.be/HaanE7v6uJI">
+                                <img class="mx-auto rounded-circle" src="assets/img/movie.jpg" alt="" />
+                            </a>
+                            <h4>One of my favorite movies (click for trailer)</h4>
+                            <p class="text-muted">This one is an oldie, but a goodie (and controversial at that)</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="assets/img/Justinian.jpg" alt="" />
+                            <h4>One of my favorite books</h4>
+                            <p class="text-muted">The Secret History, by Procopius. Read this if you want a dark-laugh</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal7"
+                                ><div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/md.png" alt=""
+                            /></a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">My favorite activity</div>
+                                <div class="portfolio-caption-subheading text-muted">Pictures of the nature by my house</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-left">Copyright © Caleb Wheeler 2020</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-twitter mx-2" href="https://twitter.com/CalebWheeler2k"></a>
+                    <a class="btn btn-dark btn-insta mx-2" href="https://www.instagram.com/caleebthedweeb/"></a>
+                    <a class="btn btn-dark btn-linkedin mx-2" href="https://www.linkedin.com/in/caleb-w-bb14a6141/"></a>
+                    <a class="btn btn-dark btn-github mx-2" href="https://github.com/LilCSharp"></a>
+                    </div>
+
+                    <!-- Add in case for later. Contains privacy and terms of use
+                    <div class="col-lg-4 text-lg-right"><a class="mr-3" href="#!">Privacy Policy</a><a href="#!">Terms of Use</a></div>
+                    -->
+                </div>
+            </div>
+        </footer>
+
+        <!-- Portfolio Modals--><!-- Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Android Flashcard Project</h2>
+                                    <p class="item-intro text-muted">My first time in mobile development</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                                    <p>This is the very first project I've have ever finished with Android. The objective of the application is simple: I am supposed to allow the user to create, modify, and flip between flashcards, as well as permit them to create multiple choice questions. As you can see, it is a little rough around the edges, but it was the very first thing I did.</p>
+                                    <ul class="list-inline">
+                                        <li>Platform: Android</li>
+                                        <li>Language: Java</li>
+                                        <li>Category: Utility</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 2-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">IMU Motion Analysis</h2>
+                                    <p class="item-intro text-muted">This project was conducted on behalf of my UMD Hyperloop Team</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/Projects/Loop.jpg" alt="" />
+                                    <p>An Internal Monitoring Unit, or IMU, is a hardware set that integrates the functionality of an accelerometer, a gyroscope, and a magnetometer. Here's the problem: accelerometers and gyromescopes have a big problem when it comes to position analysis over long periods of time, because each measurement is taken in reference to the previouse position, not the original position. We wanted to use the IMU to track the forces that were being imposed on the pod as it traveled through the vacuum, and we wanted records of how it was moving. In order to do that, we need to convert the gyroscope measurements into a stream of data in world coordinates, which is then applied to the acceleration measured by the accelerometer to accurately depict direction. I programmed a C script that used quaternions on the gyroscope measurements to keep track of the changes in angles. This angular data was used with the accelerometer to get the real-time acceleration data. I utilized discrete integration to estimate the velocity.</p>
+                                    <ul class="list-inline">
+                                        <li>Platform: None</li>
+                                        <li>Language: C, C++</li>
+                                        <li>Category: Control Systems</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 3-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Honeypot</h2>
+                                    <p class="item-intro text-muted">My first major project in cybersecurity</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/Research/Aces2.png" alt="" />
+                                    <p>A honeypot is a threat in which an attacker, by some means, tricks the user to reveal their information. In the case of this project, the information involved would be their network and network credentials. The objective of this project was to develop a system that could protect a user from such a potential attack. The way in which it works is simple: my program creates a container environment through which all unauthorized traffic passes, and it creates a template for cloning purposes. A script is set to run in the background and listen for input. In the event that a file was added to the container, the program changes the iptables rules to kick the user that SSH'd in, kills the container, and then creates a new container based on the template that was created earlier.</p>
+                                    <ul class="list-inline">
+                                        <li>Platform: Linux</li>
+                                        <li>Language: Bash</li>
+                                        <li>Category: Cybersecurity</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 4-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Web To-Do App</h2>
+                                    <p class="item-intro text-muted">A weird, albeit somewhat disastrous, Hackathon project</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/Projects/JHacksProj.png" alt="" />
+                                    <p>This one is relatively simple. We were trying to make a simple to-do list project that allows the user to sort set weighted priority and due-dates, and display them in a calendar. That's what we did. However, it was the first time doing web-dev for all of us, so it was like pulling teeth LMAO.</p>
+                                    <ul class="list-inline">
+                                        <li>Platform: Web</li>
+                                        <li>Language: JavaScript</li>
+                                        <li>Category: Utility</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 5-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Personal Finance Tool</h2>
+                                    <p class="item-intro text-muted">A tool for tracking expenditures and providing management options</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                                    <p>I won't put anything here just yet, because this project has been put on hold until the fall.</p>
+                                    <ul class="list-inline">
+                                        <li>Platform: Android</li>
+                                        <li>Language: Java, JavaScript</li>
+                                        <li>Category: Utility</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 6-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Research Tool</h2>
+                                    <p class="item-intro text-muted">A tool for following all the latest buzz</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                                    <p>I won't put anything here just yet, because this project has been put on hold until the fall.</p>
+                                    <ul class="list-inline">
+                                        <li>Platform: Web</li>
+                                        <li>Language: Python, JavaScript</li>
+                                        <li>Category: Utility</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 7-->
+        <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/nature/riverside.jpg" alt="" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/nature/path.jpg" alt="" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/nature/reflections.jpg" alt="" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/nature/green_spiky.jpg" alt="" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/nature/pink_spiky.jpg" alt="" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/nature/lillies.jpg" alt="" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/nature/deep_woods.jpg" alt="" />
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        
+        <!-- Contact form JS-->
+        <!-- Add in case contacts need be added
+        <script src="assets/mail/jqBootstrapValidation.js"></script>
+        <script src="assets/mail/contact_me.js"></script>
+        -->
+        <!-- Core theme JS-->
+
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
