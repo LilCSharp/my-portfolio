@@ -20,6 +20,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+    <!-- Removed onload="loadTasks()" -->
     <body id="page-top">
 
         <!-- Navigation-->
@@ -35,6 +36,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#research">Research</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">Projects</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#fun">FUN</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="pages/chat.html">Q&ampA</a></li>
 
                         <!-- Optional
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contacts</a></li>
@@ -289,9 +291,9 @@
                     <div class="col-lg-4 text-lg-left">Copyright © Caleb Wheeler 2020</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-twitter mx-2" href="https://twitter.com/CalebWheeler2k"></a>
-                    <a class="btn btn-dark btn-insta mx-2" href="https://www.instagram.com/caleebthedweeb/"></a>
-                    <a class="btn btn-dark btn-linkedin mx-2" href="https://www.linkedin.com/in/caleb-w-bb14a6141/"></a>
-                    <a class="btn btn-dark btn-github mx-2" href="https://github.com/LilCSharp"></a>
+                        <a class="btn btn-dark btn-insta mx-2" href="https://www.instagram.com/caleebthedweeb/"></a>
+                        <a class="btn btn-dark btn-linkedin mx-2" href="https://www.linkedin.com/in/caleb-w-bb14a6141/"></a>
+                        <a class="btn btn-dark btn-github mx-2" href="https://github.com/LilCSharp"></a>
                     </div>
 
                     <!-- Add in case for later. Contains privacy and terms of use
@@ -367,7 +369,7 @@
                                     <!-- Project Details Go Here-->
                                     <h2 class="text-uppercase">Honeypot</h2>
                                     <p class="item-intro text-muted">My first major project in cybersecurity</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/Research/Aces2.png" alt="" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/Projects/Aces2.png" alt="" />
                                     <p>A honeypot is a threat in which an attacker, by some means, tricks the user to reveal their information. In the case of this project, the information involved would be their network and network credentials. The objective of this project was to develop a system that could protect a user from such a potential attack. The way in which it works is simple: my program creates a container environment through which all unauthorized traffic passes, and it creates a template for cloning purposes. A script is set to run in the background and listen for input. In the event that a file was added to the container, the program changes the iptables rules to kick the user that SSH'd in, kills the container, and then creates a new container based on the template that was created earlier.</p>
                                     <ul class="list-inline">
                                         <li>Platform: Linux</li>

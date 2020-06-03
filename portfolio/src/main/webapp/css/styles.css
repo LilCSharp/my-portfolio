@@ -5316,6 +5316,10 @@ a.badge-dark:focus, a.badge-dark.focus {
   border-color: #1b1e21;
 }
 
+.list-center {
+  text-align: center;
+}
+
 .close {
   float: right;
   font-size: 1.5rem;
