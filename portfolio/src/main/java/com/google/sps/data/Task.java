@@ -17,11 +17,13 @@ package com.google.sps.data;
 /** An item on a todo list. */
 public final class Task {
 
+  private final Long id;
   private final String name;
   private final String date;
   private final String text;
 
-  public Task(String username, String textDate, String words) {
+  public Task(Long num, String username, String textDate, String words) {
+    id = num;
     name = username;
     date = textDate;
     text = words;

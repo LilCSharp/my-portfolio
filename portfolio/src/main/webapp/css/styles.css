@@ -5317,7 +5317,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .list-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .close {

@@ -51,11 +51,12 @@ public class DataServlet extends HttpServlet {
 
     List<Task> tasks = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
+      long id = entity.getKey().getId();
       String username = (String) entity.getProperty("name");
       String textDate = (String) entity.getProperty("date");
       String words = (String) entity.getProperty("text");
 
-      Task task = new Task(username, textDate, words);
+      Task task = new Task(id, username, textDate, words);
       tasks.add(task);
     }
 
