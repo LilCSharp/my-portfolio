@@ -1,9 +1,28 @@
-function getTime() {
-    
+var max = window.name;
+
+function submitEvent(event) {
+  if (event.keyCode == 13) {
+    max = document.getElementById("max").value;
+    window.name = max.toString();
+  }
+}
+
+function isInteger(value) {
+  if(parseInt(value,10).toString() === value) {
+    return true
+  }
+  return false;
 }
 
 function loadTasks() {
-  fetch('/data').then(response => response.json()).then((texts) => {
+  
+  console.log(max);
+
+  if (!(isInteger(max))) {
+    max = "5";
+  }
+
+  fetch('/data' + '?limit=' + max).then(response => response.json()).then((texts) => {
     const taskListElement = document.getElementById('comments');
     texts.forEach((words) => {
       taskListElement.appendChild(createTaskElement(words));
@@ -32,8 +51,9 @@ function createTaskElement(words) {
     deleteText(words);
 
     // Remove the task from the DOM.
-    taskElement.remove();
-    document.location.reload();
+    wordsElement.remove();
+  }, () => {
+    loadTasks();
   });
 
   wordsElement.appendChild(nameElement);

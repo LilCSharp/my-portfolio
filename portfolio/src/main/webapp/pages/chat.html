@@ -19,6 +19,22 @@
         
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../css/styles.css" rel="stylesheet" />
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        
+        <!-- Contact form JS-->
+        <!-- Add in case contacts need be added
+        <script src="assets/mail/jqBootstrapValidation.js"></script>
+        <script src="assets/mail/contact_me.js"></script>
+        -->
+
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+        <script src="../js/chatSystem.js"></script>
     </head>
 
     <body id="page-top" onload="loadTasks()">
@@ -44,39 +60,26 @@
         <section class="page-section" id="comments">
             <div class="container">
                 <div class="text-center">
-                    <h1><a href="/data">Test</a></h1>
-                    <ul id="chat"></ul>
+                    <h1><a href="/data">Questions or Comments?</a></h1>
                 </div>
                 <div class="text-center">
                     <form action="/data" method="POST"> 
                         <p>Your comment</p>
                         <input type="text" placeholder="Enter your name" name="nameBox">
                         <br/>
-                        <textarea name="chatbox">Comment...</textarea>
+                        <textarea name="chatBox">Comment...</textarea>
                         <br/><br/>
 
                         <input type="submit" />
                     </form>
-                    <ul id="comments"></ul>
+                    <form>
+                        <p>Enter the number of comments to display:</p>
+                        </br>
+                        <input id="max" type="number" onkeydown="submitEvent(event)" />
+                    </form>
+                    <ul id="comments" ></ul>
                 </div>
             </div>
         </section>
-
-        <!-- Bootstrap core JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        
-        <!-- Contact form JS-->
-        <!-- Add in case contacts need be added
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
-        -->
-        <!-- Core theme JS-->
-
-        <script src="../js/scripts.js"></script>
-        <script src="../js/chatSystem.js"></script>
-
     </body>
 </html>

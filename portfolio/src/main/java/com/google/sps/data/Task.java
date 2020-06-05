@@ -22,10 +22,10 @@ public final class Task {
   private final String date;
   private final String text;
 
-  public Task(Long num, String username, String textDate, String words) {
-    id = num;
-    name = username;
-    date = textDate;
-    text = words;
+  public Task(Long id, String name, String date, String text) {
+    this.id = id;
+    this.name = name;
+    this.date = date;
+    this.text = text;
   }
 }

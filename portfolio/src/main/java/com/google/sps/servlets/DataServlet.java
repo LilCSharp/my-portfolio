@@ -37,27 +37,38 @@ comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  private ArrayList<String> list = new ArrayList<String>();
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
     throws IOException { 
 
+    String limit = request.getParameter("limit");
+    int max = Integer.parseInt(limit);
+    int count = 1;
+
     Query query = new Query("Task").addSort("date", 
-    SortDirection.DESCENDING);
+        SortDirection.DESCENDING);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
     List<Task> tasks = new ArrayList<>();
+
     for (Entity entity : results.asIterable()) {
+      
+      if (count > max) {
+        break;
+      }
+
       long id = entity.getKey().getId();
       String username = (String) entity.getProperty("name");
       String textDate = (String) entity.getProperty("date");
       String words = (String) entity.getProperty("text");
 
       Task task = new Task(id, username, textDate, words);
+      
       tasks.add(task);
+
+      count++;
     }
 
     Gson gson = new Gson();
@@ -70,14 +81,14 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) 
     throws IOException {
     
-    String text = request.getParameter("chatbox");
+    String text = request.getParameter("chatBox");
     String name = request.getParameter("nameBox");
     String date = "";
 
     if (text == null) {
         text = "";
     }
-    if (name == null) {
+    if (name == null || name == "") {
         name = "Anonymous";
     }
 
