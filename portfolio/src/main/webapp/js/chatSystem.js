@@ -37,7 +37,7 @@ function createTaskElement(words) {
   wordsElement.className = 'list-center';
 
   const textElement = document.createElement('span');
-  textElement.innerText = words.text + "\n" + "\n";
+  textElement.innerText = words.text + "\n";
 
   const timeElement = document.createElement('span');
   timeElement.innerText = words.date + "\n";

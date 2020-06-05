@@ -45,7 +45,7 @@ public class DataServlet extends HttpServlet {
     int max = Integer.parseInt(limit);
     int count = 1;
 
-    Query query = new Query("Task").addSort("date", 
+    Query query = new Query("Task").addSort("time", 
         SortDirection.DESCENDING);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -84,22 +84,26 @@ public class DataServlet extends HttpServlet {
     String text = request.getParameter("chatBox");
     String name = request.getParameter("nameBox");
     String date = "";
+    String time;
 
     if (text == null) {
         text = "";
     }
-    if (name == null || name == "") {
+    if (name == null || name.length() == 0 || name.charAt(0) == ' ') {
         name = "Anonymous";
     }
 
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy ");
+    DateTimeFormatter utcTime = DateTimeFormatter.ofPattern("HH:mm:s M/dd/yyyy");
     LocalDateTime now = LocalDateTime.now();
     date = dtf.format(now).toString();
+    time = utcTime.format(now).toString();
 
     Entity comments = new Entity("Task");
     comments.setProperty("name", name);
     comments.setProperty("date", date);
     comments.setProperty("text", text);
+    comments.setProperty("time", time);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(comments);
