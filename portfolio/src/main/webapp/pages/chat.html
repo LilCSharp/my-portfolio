@@ -33,7 +33,6 @@
         -->
 
         <!-- Core theme JS-->
-        <script src="../js/scripts.js"></script>
         <script src="../js/chatSystem.js"></script>
     </head>
 
@@ -63,15 +62,20 @@
                     <h1>Questions or Comments?</h1>
                 </div>
                 <div class="text-center">
-                    <form action="/data" method="POST"> 
-                        <p>Your comment</p>
-                        <input type="text" placeholder="Enter your name" name="nameBox">
-                        <br/>
-                        <textarea name="chatBox">Comment...</textarea>
-                        <br/><br/>
+                    <div class="login-link">
+                        <h3><a id="log-in" href="/login">Log-In</a></h3>
+                    </div>
+                    <div id="input_form">
+                        <form action="/login" method="POST"> 
+                            <p>Your comment</p>
+                            <input type="text" placeholder="Enter your name" name="nameBox">
+                            <br/>
+                            <textarea name="chatBox" placeholder="Comment..."></textarea>
+                            <br/><br/>
 
-                        <input type="submit" />
-                    </form>
+                            <input type="submit" />
+                        </form> 
+                    </div>
                     </br>
                     <form>
                         <p>Enter the number of comments to display:</p>
@@ -82,4 +86,7 @@
             </div>
         </section>
     </body>
+
+    <script src="../js/scripts.js"></script>
+
 </html>

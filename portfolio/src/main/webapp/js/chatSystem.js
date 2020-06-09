@@ -1,4 +1,5 @@
 var max = window.name;
+var username = "none";
 
 function submitEvent(event) {
   if (event.keyCode == 13) {
@@ -32,6 +33,15 @@ function loadTasks() {
 
 /** Creates an element that represents a task, including its delete button. */
 function createTaskElement(words) {
+
+  if (words.form == 0) {
+    document.getElementById("input_form").style.visibility = "hidden";
+    document.getElementById("log-in").innerText = "Log-In";
+  } else {
+    document.getElementById("input_form").style.visibility = "visible";
+    document.getElementById("log-in").innerText = "Log-Out";
+  }
+
   const wordsElement = document.createElement('p');
   wordsElement.className = 'words';
   wordsElement.className = 'list-center';
@@ -42,8 +52,13 @@ function createTaskElement(words) {
   const timeElement = document.createElement('span');
   timeElement.innerText = words.date + "\n";
 
+  /*
   const nameElement = document.createElement('span');
   nameElement.innerText = words.name + "\n";
+  */
+
+  const emailElement = document.createElement('span');
+  emailElement.innerText = words.email + "\n";
 
   const deleteButtonElement = document.createElement('button');
   deleteButtonElement.innerText = 'Delete';
@@ -56,7 +71,8 @@ function createTaskElement(words) {
     loadTasks();
   });
 
-  wordsElement.appendChild(nameElement);
+  //wordsElement.appendChild(nameElement);
+  wordsElement.appendChild(emailElement);
   wordsElement.appendChild(timeElement);
   wordsElement.appendChild(textElement);
   wordsElement.appendChild(deleteButtonElement);

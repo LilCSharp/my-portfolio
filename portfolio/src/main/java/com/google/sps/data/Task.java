@@ -17,15 +17,22 @@ package com.google.sps.data;
 /** An item on a todo list. */
 public final class Task {
 
+  //To add a nickname, uncomment name and add a String name parameter
+  //private final String name;
   private final Long id;
-  private final String name;
   private final String date;
   private final String text;
+  private final String email;
+  private final Integer form;
 
-  public Task(Long id, String name, String date, String text) {
+  public Task(Long id, String date, String text, String email, int form) {
+    
+    //this.name = name;
+
     this.id = id;
-    this.name = name;
     this.date = date;
     this.text = text;
+    this.email = email;
+    this.form = form;
   }
 }

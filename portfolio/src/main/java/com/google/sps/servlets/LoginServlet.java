@@ -23,85 +23,64 @@ import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.sps.data.Task;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import com.google.gson.Gson;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
 
-/** Servlet that returns some example content. TODO: modify this file to handle
-comments data */
-@WebServlet("/data")
-public class DataServlet extends HttpServlet {
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) 
-    throws IOException { 
-
-    String limit = request.getParameter("limit");
-    int max;
-    int count = 1, showForm = 1;
-
-    if (limit == null) {
-      max = 0;
-    } else {
-      max = Integer.parseInt(limit);
-    }
-
-    UserService userService = UserServiceFactory.getUserService();
-    if (!userService.isUserLoggedIn()) {
-      showForm = 0;
-    }
-
-    Query query = new Query("Task").addSort("time", 
-        SortDirection.DESCENDING);
-
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    PreparedQuery results = datastore.prepare(query);
-
-    List<Task> tasks = new ArrayList<>();
-
-    for (Entity entity : results.asIterable()) {
-      
-      if (count > max) {
-        break;
-      }
-
-      long id = entity.getKey().getId();
-      String username = (String) entity.getProperty("name");
-      String textDate = (String) entity.getProperty("date");
-      String words = (String) entity.getProperty("text");
-      String email = (String) entity.getProperty("email");
-
-      Task task = new Task(id, textDate, words, email, showForm);
-      
-      tasks.add(task);
-
-      count++;
-    }
-
-    Gson gson = new Gson();
-
-    response.setContentType("application/json;");
-    response.getWriter().println(gson.toJson(tasks));
-  }
-
-  /* This entire section is has been moved with additional functionality to the
-     login servlet. This code is recommended to remain in the event that the
-     writer wishes to change some functionality.
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) 
     throws IOException {
     
+    response.setContentType("text/html");
+
+    UserService userService = UserServiceFactory.getUserService();
+    if (userService.isUserLoggedIn()) {
+      String userEmail = userService.getCurrentUser().getEmail();
+      String urlToRedirectToAfterUserLogsOut = 
+        "https://calebwheeler-step-2020.ue.r.appspot.com/pages/chat.html";
+      String logoutUrl = userService.createLogoutURL(
+        urlToRedirectToAfterUserLogsOut);
+
+      response.getWriter().println("<p>Hello " + userEmail + "!</p>");
+      response.getWriter().println(
+        "<p>Logout <a href=\"" + logoutUrl + "\">here</a>.</p>");
+    } else {
+      String urlToRedirectToAfterUserLogsIn = 
+        "https://calebwheeler-step-2020.ue.r.appspot.com/pages/chat.html";
+      String loginUrl = userService.createLoginURL(
+        urlToRedirectToAfterUserLogsIn);
+      
+      response.getWriter().println("<p>Hello stranger.</p>");
+      response.getWriter().println("<p>Login <a href=\"" + loginUrl + 
+        "\">here</a>.</p>");
+    }
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response)
+   throws IOException {
+
     String text = request.getParameter("chatBox");
     String name = request.getParameter("nameBox");
     String date = "";
-    String time;
+    String time, email;
+      
+    UserService userService = UserServiceFactory.getUserService();
+    if (!userService.isUserLoggedIn()) {
+      response.sendRedirect("/login");
+      return;
+    }
+
+    email = userService.getCurrentUser().getEmail();
 
     if (text == null) {
       text = "";
@@ -118,15 +97,15 @@ public class DataServlet extends HttpServlet {
     time = utcTime.format(now).toString();
 
     Entity comments = new Entity("Task");
-    comments.setProperty("name", name);
+    //comments.setProperty("name", name);
     comments.setProperty("date", date);
     comments.setProperty("text", text);
     comments.setProperty("time", time);
+    comments.setProperty("email", email);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(comments);
 
     response.sendRedirect("/pages/chat.html");
   }
-  */
 }
