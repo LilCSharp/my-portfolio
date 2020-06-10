@@ -52,13 +52,9 @@ function createTaskElement(words) {
   const timeElement = document.createElement('span');
   timeElement.innerText = words.date + "\n";
 
-  /*
-  const nameElement = document.createElement('span');
-  nameElement.innerText = words.name + "\n";
-  */
-
   const emailElement = document.createElement('span');
   emailElement.innerText = words.email + "\n";
+  emailElement.setAttribute("id", words.id);
 
   const deleteButtonElement = document.createElement('button');
   deleteButtonElement.innerText = 'Delete';
@@ -76,6 +72,22 @@ function createTaskElement(words) {
   wordsElement.appendChild(timeElement);
   wordsElement.appendChild(textElement);
   wordsElement.appendChild(deleteButtonElement);
+
+  if (words.imgURL == null) {    
+    var photoHTML = "<input name=\"userEmail\" type=\"hidden\" value=\""
+    photoHTML += words.email+"\"><input name=\"currentID\" type=\"hidden\" value=\""
+    photoHTML += words.id+"\"></br><input type=\"file\" name=\"image\"><br/>";
+    photoHTML += "<button>Submit</button>";
+    const addPhotoElement = document.createElement('form');
+    addPhotoElement.setAttribute("action", 'POST');
+    addPhotoElement.innerHTML = photoHTML;
+    wordsElement.appendChild(addPhotoElement);
+  } else {
+    const addPhotoElement = document.createElement('img');
+    addPhotoElement.setAttribute("src", words.imgURL);
+    addPhotoElement.setAttribute("alt", "");
+    wordsElement.appendChild(addPhotoElement);
+  }
 
   return wordsElement;
 }

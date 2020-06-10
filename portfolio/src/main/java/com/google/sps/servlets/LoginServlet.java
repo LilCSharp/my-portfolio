@@ -102,6 +102,7 @@ public class LoginServlet extends HttpServlet {
     comments.setProperty("text", text);
     comments.setProperty("time", time);
     comments.setProperty("email", email);
+    comments.setProperty("imgURL", null);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(comments);

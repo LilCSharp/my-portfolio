@@ -77,8 +77,9 @@ public class DataServlet extends HttpServlet {
       String textDate = (String) entity.getProperty("date");
       String words = (String) entity.getProperty("text");
       String email = (String) entity.getProperty("email");
+      String imgURL = (String) entity.getProperty("imgURL");
 
-      Task task = new Task(id, textDate, words, email, showForm);
+      Task task = new Task(id, textDate, words, email, showForm, imgURL);
       
       tasks.add(task);
 
