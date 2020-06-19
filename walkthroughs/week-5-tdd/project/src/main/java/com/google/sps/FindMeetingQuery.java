@@ -42,6 +42,7 @@ public final class FindMeetingQuery {
     Collection<String> attendees = request.getAttendees();
     Collection<String> optionals = request.getOptionalAttendees();
     boolean invalid = false;
+    int count = 0;
 
     for (Event available: events) {
     
@@ -50,6 +51,7 @@ public final class FindMeetingQuery {
           invalid = true;
           break;
         }
+        count++;
       }
 
       if (!invalid) {
@@ -63,26 +65,45 @@ public final class FindMeetingQuery {
     
     root = null;
 
-    for (Event available: events) {
+    if (count != 0){
+      for (Event available: events) {
     
-      Collection<String> groups = available.getAttendees();
+        Collection<String> groups = available.getAttendees();
 
-      for (String people: optionals) {
-        if(groups.contains(people)) {
-          root = insert(new Node(available.getWhen().start(), available.getWhen().end()), root);
-          break;
+        for (String people: optionals) {
+          if(groups.contains(people)) {
+            root = insert(new Node(available.getWhen().start(), available.getWhen().end()), root);
+            break;
+          }
         }
       }
-    }
 
-    ArrayList<Node> meetings = new ArrayList<Node>();
+      ArrayList<Node> meetings = new ArrayList<Node>();
 
-    for(TimeRange meets: times) {
-      meetings.add(new Node(meets.start(), meets.end()));
-    }
+      for(TimeRange meets: times) {
+        meetings.add(new Node(meets.start(), meets.end()));
+      }
 
-    getOptionals(root, meetings, (int) request.getDuration());
+      getOptionals(root, meetings, (int) request.getDuration());
+    } else {
+
+      times = new ArrayList<TimeRange>();
+
+      for (Event available: events) {
     
+        Collection<String> groups = available.getAttendees();
+
+        for (String people: optionals) {
+          if(groups.contains(people)) {
+            root = insert(new Node(available.getWhen().start(), available.getWhen().end()), root);
+            break;
+          }
+        }
+      }
+      
+      getTimes(root, 0, (int) request.getDuration());
+    }
+
     return times;
   }
 
@@ -152,6 +173,7 @@ public final class FindMeetingQuery {
               int temp = list.get(i).end;
               list.get(i).end = curr.start;
               list.add(i, new Node(curr.end, temp));
+              i--;
             }
           }
 
@@ -160,17 +182,16 @@ public final class FindMeetingQuery {
       }
 
       ArrayList<TimeRange> modified = new ArrayList<TimeRange>();
+      boolean found = false;
 
       for (int i = 0; i < list.size(); i++) {
-        if (list.get(i).end - list.get(i).start < duration) {
-          list.remove(i);
-          i--;
-        } else {
+        if (list.get(i).end - list.get(i).start >= duration) {
           modified.add(TimeRange.fromStartDuration(list.get(i).start, list.get(i).end - list.get(i).start));
-        } 
+          found = true;
+        }
       }
 
-      if (list.size() > 0) {
+      if (found) {
         times = modified;
       }
     }
